@@ -2,7 +2,8 @@ Cerberus |latest-version|
 =========================
 |python-support| |black|
 
-Cerberus is a lightweight and extensible data validation library for Python.
+Cerberus is a lightweight and extensible data validation library for Python. It is designed to be simple and non-intrusive, making it easy to integrate into any project while maintaining the flexibility to support complex validation requirements. Whether you're building a small script or a large application, Cerberus provides the tools you need for effective data validation.
+
 
 .. code-block:: python
 
@@ -10,14 +11,24 @@ Cerberus is a lightweight and extensible data validation library for Python.
     >>> v.validate({'name': 'john doe'})
     True
 
+    >>> schema = {'age': {'type': 'integer', 'min': 18}}
+    >>> v = Validator(schema)
+    >>> v.validate({'age': 15})
+    False
+
+    >>> v.errors
+    {'age': ['min value is 18']}
+
+
 
 Features
 --------
 
-Cerberus provides type checking and other base functionality out of the box and
-is designed to be non-blocking and easily and widely extensible, allowing for
-custom validation. It has no dependencies, but has the potential to become
-yours.
+- **Simple and Intuitive API:** Easily define validation schemas and validate data with minimal setup.
+- **Type Checking:** Automatically validates data types to ensure data integrity.
+- **Custom Validation:** Extend the library with custom validation rules to meet specific project needs.
+- **Schema Inheritance:** Supports schema inheritance for reusability and maintainability.
+- **Extensibility:** Easily create and integrate custom validators and data normalization handlers.
 
 
 Versioning & Interpreter support
@@ -89,6 +100,8 @@ sure the required python versions are installed and run:
 Contributing
 ------------
 
+If you encounter any issues or have questions about Cerberus, feel free to open an issue on our GitHub repository. Join our community discussions to share your experiences, ask questions, and help others. Your contributions, whether through code, documentation, or advocacy, are always welcome!
+
 Please see the `Contribution Guidelines`_.
 
 
@@ -98,11 +111,13 @@ Copyright
 Cerberus is an open source project by `Nicola Iarocci`_. See the license_ file
 for more information.
 
+    We would like to thank all the contributors and community members who have helped to make this project successful.
 
-.. _Contribution Guidelines: https://github.com/pyeve/cerberus/blob/1.3.x/CONTRIBUTING.rst
+
+.. _Contribution Guidelines: https://github.com/pyeve/cerberus/blob/1.3.x/docs/contribute.rst
 .. _end of life: https://devguide.python.org/#status-of-python-branches
 .. _funding page: http://docs.python-cerberus.org/en/latest/funding.html
-.. _license: https://github.com/pyeve/cerberus/blob/1.3.x/LICENSE
+.. _license: https://github.com/pyeve/cerberus/blob/1.3.x/docs/license.rst
 .. _Nicola Iarocci: https://nicolaiarocci.com/
 .. _PyPI: https://pypi.python.org/
 .. _semantic versioning: https://semver.org/
